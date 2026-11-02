@@ -1,0 +1,4 @@
+# M1: 낙관적 락, 재시도 없음
+lab:
+  retry:
+    max-retries: 0

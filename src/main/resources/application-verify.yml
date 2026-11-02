@@ -1,0 +1,5 @@
+# 구현 확인용: SQL과 바인딩 값을 로그로 출력한다. 성능 측정에서는 사용하지 않는다.
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE

@@ -1,0 +1,49 @@
+# 공통 설정 — 모든 방식(M0~M3)에 동일하게 적용한다. (계획서 3장, PROJECT_PLAN 2장)
+spring:
+  application:
+    name: stock-concurrency-lab
+  datasource:
+    # 로컬 실험용 설정. SSL을 끄는 것은 암호화 비용이 측정에 섞이지 않게 하기 위함이다.
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3307}/stocklab?sslMode=DISABLED&allowPublicKeyRetrieval=true
+    username: lab
+    password: lab
+    hikari:
+      maximum-pool-size: 64
+      minimum-idle: 64
+      connection-timeout: 5000
+  jpa:
+    open-in-view: false          # 재시도 시 이전 시도의 엔티티 재사용 방지
+    hibernate:
+      ddl-auto: validate
+  sql:
+    init:
+      mode: always               # schema.sql (CREATE TABLE IF NOT EXISTS)
+  profiles:
+    # 방식 프로파일 → 엔티티 프로파일. 한 번의 실행에는 Product 엔티티 하나만 등록된다.
+    group:
+      m0: plain-entity
+      m1: versioned-entity
+      m2: versioned-entity
+      m3: plain-entity
+
+server:
+  tomcat:
+    threads:
+      max: 100
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
+
+lab:
+  retry:
+    max-retries: 0               # M2만 application-m2.yml에서 3
+    delay-ms: 5
+  purchase-log:
+    enabled: false               # 정합성 실험(correctness 프로파일)에서만 true
+  db:
+    expected-isolation: REPEATABLE-READ
+    expected-lock-wait-timeout: 3
+    min-max-connections: 100

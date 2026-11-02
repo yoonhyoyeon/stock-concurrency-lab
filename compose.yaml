@@ -1,0 +1,27 @@
+# MySQL 8.0 실험 DB. 이미지 태그는 패치 버전까지 고정하고 digest는 results/env/에 기록한다.
+# 호스트의 3306은 다른 용도의 로컬 MySQL이 사용 중이므로 3307로 노출한다.
+services:
+  mysql:
+    image: mysql:8.0.46
+    container_name: stocklab-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: stocklab
+      MYSQL_USER: lab
+      MYSQL_PASSWORD: lab
+    ports:
+      - "3307:3306"
+    command:
+      - --transaction-isolation=REPEATABLE-READ
+      - --innodb-lock-wait-timeout=3
+      - --max-connections=200
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  mysql-data:

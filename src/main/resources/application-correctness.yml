@@ -1,0 +1,4 @@
+# 실험 1(정합성): 재고 차감과 같은 트랜잭션에서 구매 기록을 남긴다. SQL 로그는 끈다.
+lab:
+  purchase-log:
+    enabled: true

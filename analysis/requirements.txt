@@ -1,0 +1,4 @@
+# 결과 분석 환경 (Python 3.13.7). 설치: python3 -m venv .venv && .venv/bin/pip install -r analysis/requirements.txt
+pandas==3.1.0
+matplotlib==3.11.2
+numpy==2.5.4

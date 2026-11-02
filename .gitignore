@@ -1,0 +1,14 @@
+.gradle/
+build/
+out/
+.idea/
+*.iml
+.vscode/
+.DS_Store
+.venv/
+__pycache__/
+# 실험 원시 결과는 용량이 커질 수 있어 기본 제외. 보존할 요약 결과는 필요 시 개별 추가한다.
+results/runs/
+
+# 계획서·보고서·학습 자료는 저장소에 올리지 않는다.
+docs/

@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS product (
+    id BIGINT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    stock INT NOT NULL,
+    version BIGINT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS purchase_log (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    product_id BIGINT NOT NULL,
+    created_at DATETIME(6) NOT NULL
+);

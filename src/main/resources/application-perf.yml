@@ -1,0 +1,11 @@
+# 실험 2(성능): SQL 로그·요청별 출력·구매 기록을 모두 끈다.
+spring:
+  main:
+    banner-mode: off
+lab:
+  purchase-log:
+    enabled: false
+logging:
+  level:
+    root: WARN
+    com.stocklab: INFO
