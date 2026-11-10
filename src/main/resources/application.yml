@@ -7,9 +7,12 @@ spring:
     url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3307}/stocklab?sslMode=DISABLED&allowPublicKeyRetrieval=true
     username: lab
     password: lab
+    # 커넥션 풀 크기 = Tomcat 최대 스레드 수(100). 요청을 처리하는 스레드가 DB 커넥션을 기다리지 않게 해서,
+    # 측정값에 "커넥션 부족으로 인한 대기"가 섞이지 않도록 한다. (2주차, 지도교수 피드백 반영)
+    # 기동 시 DbSettingsVerifier가 풀 크기 >= Tomcat 스레드 수인지 확인한다.
     hikari:
-      maximum-pool-size: 64
-      minimum-idle: 64
+      maximum-pool-size: 100
+      minimum-idle: 100
       connection-timeout: 5000
   jpa:
     open-in-view: false          # 재시도 시 이전 시도의 엔티티 재사용 방지
@@ -46,4 +49,7 @@ lab:
   db:
     expected-isolation: REPEATABLE-READ
     expected-lock-wait-timeout: 3
-    min-max-connections: 100
+    min-max-connections: 150     # 풀 100 + 관리·테스트용 여유. compose.yaml에서 200으로 설정
+    # 커넥션 풀이 요청 처리 스레드 수보다 작으면 기동을 실패시킨다.
+    # 풀 부족이 결과에 어떤 영향을 주는지 보여 주는 보조 실험에서만 false로 바꾼다.
+    require-pool-covers-threads: true

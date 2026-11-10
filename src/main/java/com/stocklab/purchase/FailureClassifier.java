@@ -1,6 +1,7 @@
 package com.stocklab.purchase;
 
 import java.sql.SQLException;
+import java.sql.SQLTransientConnectionException;
 
 /** 예외의 원인 체인에서 MySQL 오류 코드를 찾아 실패 유형을 판별한다. */
 public final class FailureClassifier {
@@ -24,6 +25,24 @@ public final class FailureClassifier {
             current = current.getCause();
         }
         return null;
+    }
+
+    /**
+     * 커넥션 풀에서 connectionTimeout(5초) 안에 커넥션을 받지 못한 경우.
+     * HikariCP는 SQLTransientConnectionException을 던지고, Spring은 이를 CannotCreateTransactionException으로 감싼다.
+     */
+    public static boolean isConnectionTimeout(Throwable throwable) {
+        Throwable current = throwable;
+        for (int depth = 0; current != null && depth < 32; depth++) {
+            if (current instanceof SQLTransientConnectionException) {
+                return true;
+            }
+            if (current.getCause() == current) {
+                break;
+            }
+            current = current.getCause();
+        }
+        return false;
     }
 
     public static boolean isLockWaitTimeout(Throwable throwable) {

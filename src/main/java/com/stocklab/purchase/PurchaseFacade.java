@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
  *   재시도 소진    : CONFLICT
  *   재고 없음      : SOLD_OUT, 재시도하지 않음
  *   락 대기 초과   : LOCK_TIMEOUT, 재시도하지 않음
+ *   커넥션 획득 timeout: ERROR로 응답하고 서버 집계에서 CONNECTION_TIMEOUT으로 따로 센다. 재시도하지 않음
  *   기타 오류      : ERROR, 재시도하지 않음
  * </pre>
  *
@@ -68,6 +69,9 @@ public class PurchaseFacade {
                     break;
                 } catch (RuntimeException e) {
                     counters.recordFailureType(e);
+                    if (FailureClassifier.isConnectionTimeout(e)) {
+                        counters.recordConnectionTimeout();
+                    }
                     outcome = FailureClassifier.isLockWaitTimeout(e) ? Outcome.LOCK_TIMEOUT : Outcome.ERROR;
                     break;
                 }

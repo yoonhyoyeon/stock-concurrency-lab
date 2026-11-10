@@ -7,16 +7,21 @@ import com.stocklab.purchase.PurchaseResult;
 import com.stocklab.support.Evidence;
 import com.stocklab.support.SwitchableAfterReadHook;
 import com.stocklab.support.VerifyTest;
+import com.zaxxer.hikari.HikariDataSource;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -25,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/** C1: Spring Boot·MySQL 연결과 reset·result API / C2: 실제 세션의 DB 설정 */
+/** C1: Spring Boot·MySQL 연결과 reset·result API / C2: 실제 세션의 DB 설정과 풀 크기 / C13: 커넥션 획득 timeout 집계 */
 @VerifyTest
 @ActiveProfiles({"m0", "verify"})
 class InfrastructureTest {
@@ -40,6 +45,10 @@ class InfrastructureTest {
     LabCounters counters;
     @Autowired
     SwitchableAfterReadHook hook;
+    @Autowired
+    DataSource dataSource;
+    @Value("${server.tomcat.threads.max}")
+    int tomcatMaxThreads;
 
     @AfterEach
     void clearHook() {
@@ -112,5 +121,49 @@ class InfrastructureTest {
         assertThat(((Number) row.get("lw")).intValue()).isEqualTo(3);
         assertThat(((Number) row.get("mc")).intValue()).isGreaterThanOrEqualTo(100);
         Evidence.log("C2", "session: " + row);
+    }
+
+    @Test
+    @DisplayName("C2: 커넥션 풀 크기가 요청 처리 스레드 수 이상이다 (풀 100 = Tomcat 스레드 100)")
+    void c2_poolCoversRequestThreads() {
+        HikariDataSource hikari = (HikariDataSource) dataSource;
+        int maxConnections = jdbcTemplate.queryForObject("SELECT @@max_connections", Integer.class);
+        assertThat(hikari.getMaximumPoolSize()).isEqualTo(100);
+        assertThat(hikari.getMinimumIdle()).isEqualTo(100);
+        assertThat(hikari.getMaximumPoolSize()).isGreaterThanOrEqualTo(tomcatMaxThreads);
+        assertThat(maxConnections).isGreaterThanOrEqualTo(hikari.getMaximumPoolSize());
+        Evidence.log("C2", "hikari pool=" + hikari.getMaximumPoolSize() + ", minIdle=" + hikari.getMinimumIdle()
+                + ", tomcat threads=" + tomcatMaxThreads + ", max_connections=" + maxConnections);
+    }
+
+    @Test
+    @DisplayName("C13: 커넥션을 5초 안에 받지 못하면 ERROR로 응답하고 CONNECTION_TIMEOUT으로 따로 센다")
+    void c13_connectionTimeoutIsCountedSeparately() throws Exception {
+        rest.postForEntity("/admin/reset", Map.of("productCount", 1, "initialStock", 10), Map.class);
+        HikariDataSource hikari = (HikariDataSource) dataSource;
+        List<Connection> held = new ArrayList<>();
+        PurchaseResult result;
+        long elapsedMs;
+        try {
+            // 풀의 커넥션을 모두 빌려 둔다 → 구매 요청은 커넥션을 받지 못하고 기다린다.
+            for (int i = 0; i < hikari.getMaximumPoolSize(); i++) {
+                held.add(dataSource.getConnection());
+            }
+            long start = System.nanoTime();
+            result = facade.purchase(1);
+            elapsedMs = (System.nanoTime() - start) / 1_000_000;
+        } finally {
+            for (Connection c : held) {
+                c.close();
+            }
+        }
+        LabCounters.Snapshot snapshot = counters.snapshot();
+        assertThat(result.outcome()).isEqualTo(Outcome.ERROR);
+        assertThat(result.attempts()).isEqualTo(1);
+        assertThat(snapshot.connectionTimeouts()).isEqualTo(1);
+        assertThat(elapsedMs).isBetween(4_500L, 7_000L);
+        assertThat(jdbcTemplate.queryForObject("SELECT stock FROM product WHERE id = 1", Integer.class)).isEqualTo(10);
+        Evidence.log("C13", "풀 " + held.size() + "개를 모두 점유한 상태에서 구매 → result=" + result + ", 소요 " + elapsedMs
+                + "ms, connectionTimeouts=" + snapshot.connectionTimeouts() + ", failureTypes=" + snapshot.failureTypes());
     }
 }

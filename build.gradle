@@ -38,6 +38,27 @@ tasks.named('test') {
     }
 }
 
+// 실험 1(정합성): @Tag("experiment") 테스트만 실행한다. 결과는 results/correctness/correctness_<시각>.csv
+// 실행: ./gradlew correctnessExperiment   (성능 실험 서버와 동시에 실행하지 않는다)
+tasks.register('correctnessExperiment', Test) {
+    description = '실험 1: 4 방식 × N{10,50,100} × 5회 정합성 검증 + 풀 64 보조 실험'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        includeTags 'experiment'
+    }
+    def stamp = new Date().format('yyyyMMdd_HHmmss')
+    def gitVersion = ['git', 'describe', '--always', '--dirty'].execute(null, rootDir).text.trim()
+    systemProperty 'lab.correctness.output', "${rootDir}/results/correctness/correctness_${stamp}.csv"
+    systemProperty 'lab.code.version', gitVersion ?: 'unknown'
+    outputs.upToDateWhen { false }
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        exceptionFormat 'full'
+    }
+}
+
 bootJar {
     archiveFileName = 'stock-concurrency-lab.jar'
 }

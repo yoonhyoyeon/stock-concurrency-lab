@@ -25,6 +25,8 @@ public class LabCounters {
     private final LongAdder totalAttempts = new LongAdder();
     private final LongAdder conflictAttempts = new LongAdder();
     private final LongAccumulator maxAttempts = new LongAccumulator(Math::max, 0);
+    /** 커넥션 획득 timeout 건수. 결과는 ERROR로 응답하지만, 실행 유효성 판정을 위해 따로 센다. */
+    private final LongAdder connectionTimeouts = new LongAdder();
     private final Map<Outcome, LongAdder> outcomes = new EnumMap<>(Outcome.class);
     private final ConcurrentHashMap<Long, LongAdder> commitsByProduct = new ConcurrentHashMap<>();
     private final ConcurrentHashMap<String, LongAdder> failureTypes = new ConcurrentHashMap<>();
@@ -56,6 +58,10 @@ public class LabCounters {
         failureTypes.computeIfAbsent(FailureClassifier.describe(throwable), key -> new LongAdder()).increment();
     }
 
+    public void recordConnectionTimeout() {
+        connectionTimeouts.increment();
+    }
+
     public int inFlight() {
         return inFlight.get();
     }
@@ -66,6 +72,7 @@ public class LabCounters {
         totalAttempts.reset();
         conflictAttempts.reset();
         maxAttempts.reset();
+        connectionTimeouts.reset();
         outcomes.values().forEach(LongAdder::reset);
         commitsByProduct.clear();
         failureTypes.clear();
@@ -86,6 +93,7 @@ public class LabCounters {
                 totalAttempts.sum(),
                 conflictAttempts.sum(),
                 maxAttempts.get(),
+                connectionTimeouts.sum(),
                 commits,
                 failures);
     }
@@ -97,6 +105,7 @@ public class LabCounters {
                            long totalAttempts,
                            long conflictAttempts,
                            long maxAttempts,
+                           long connectionTimeouts,
                            Map<Long, Long> commitsByProduct,
                            Map<String, Long> failureTypes) {
     }
