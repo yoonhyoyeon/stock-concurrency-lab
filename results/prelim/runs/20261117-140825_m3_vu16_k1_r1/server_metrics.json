@@ -1,0 +1,52 @@
+{
+  "before": {
+    "jvm.gc.pause": {},
+    "jvm.memory.used": {
+      "VALUE": 512689112.0
+    },
+    "jvm.memory.max": {
+      "VALUE": 1073741822.0
+    },
+    "hikaricp.connections.timeout": {
+      "COUNT": 0.0
+    },
+    "hikaricp.connections.acquire": {
+      "COUNT": 7029.0,
+      "TOTAL_TIME": 0.018,
+      "MAX": 0.001
+    },
+    "hikaricp.connections.pending": {
+      "VALUE": 0.0
+    },
+    "process.cpu.usage": {
+      "VALUE": 0.0
+    }
+  },
+  "after": {
+    "jvm.gc.pause": {
+      "COUNT": 2.0,
+      "TOTAL_TIME": 0.023,
+      "MAX": 0.012
+    },
+    "jvm.memory.used": {
+      "VALUE": 386438280.0
+    },
+    "jvm.memory.max": {
+      "VALUE": 1073741822.0
+    },
+    "hikaricp.connections.timeout": {
+      "COUNT": 0.0
+    },
+    "hikaricp.connections.acquire": {
+      "COUNT": 31989.0,
+      "TOTAL_TIME": 0.024,
+      "MAX": 0.001
+    },
+    "hikaricp.connections.pending": {
+      "VALUE": 0.0
+    },
+    "process.cpu.usage": {
+      "VALUE": 0.03416857184743267
+    }
+  }
+}

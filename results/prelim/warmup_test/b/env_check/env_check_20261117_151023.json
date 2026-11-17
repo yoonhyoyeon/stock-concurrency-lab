@@ -1,0 +1,29 @@
+{
+  "power_source": "Battery",
+  "low_power_mode": 0,
+  "load1": 7.34,
+  "thermal_warning": [],
+  "time": "2026-11-17T15:10:23",
+  "colima": [
+    "default",
+    "Running",
+    "aarch64",
+    "4",
+    "4GiB",
+    "20GiB",
+    "docker"
+  ],
+  "top_processes": [
+    "84.9 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine",
+    " 11.4 ssh: /Users/yoonhyoyeon/.colima/_lima/colima/ssh.sock [mux]",
+    "  8.7 /Users/yoonhyoyeon/.local/bin/limactl",
+    "  7.6 /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python",
+    "  5.6 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer"
+  ],
+  "problems": [
+    "전원 어댑터가 연결되어 있지 않음",
+    "시작 전 load average 7.34 > 3.0 (다른 앱 종료 필요)"
+  ],
+  "strict": false,
+  "code_version": "61a2123-dirty"
+}

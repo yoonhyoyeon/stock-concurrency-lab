@@ -1,0 +1,2 @@
+run_id,status,invalid_reason,method,vu,k,repeat,order_index,k6_seed,warmup_s,measure_s,heap,server_restarted,started_at,finished_at
+20261117-144723_m2_vu4_k10_r1,valid,,m2,4,10,1,1,2201,3,5,1g,True,2026-11-17T14:47:23,2026-11-17T14:47:33

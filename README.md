@@ -16,7 +16,25 @@ python3 analysis/correctness_t1.py results/correctness/correctness_<시각>.csv 
 java -jar build/libs/stock-concurrency-lab.jar --spring.profiles.active=m2,perf
 ```
 
-공통 설정: HikariCP 커넥션 풀 100 = Tomcat 최대 스레드 100 (풀이 더 작으면 기동 실패), `innodb_lock_wait_timeout=3`, REPEATABLE READ.
+### 실험 2 (성능, k6)
+
+```bash
+./gradlew bootJar
+python3 scripts/run_matrix.py selftest                     # C12: 조건 1개 실행 → 저장 → 검증 → CSV
+python3 scripts/run_matrix.py plan --root results --name main --seed 20261118 --repeats 5
+scripts/collect_env.sh                                     # 환경 정보 → results/env/
+python3 scripts/run_matrix.py run --root results --plan results/plan/plan_main_20261118.csv \
+    --warmup 20 --measure 60 --restart-warmup 30 --monitor --strict-env --max-external-cores 1.0
+python3 analysis/aggregate.py --root results               # summary.csv, condition_stats.csv
+python3 analysis/plots.py --root results                   # G1~G4 → results/figures/
+```
+
+- `load/purchase.js`: k6 폐쇄형 부하(constant-vus), 측정 구간/종료 대기 분리, k6 내부 집계
+- `scripts/run_matrix.py`: 실행 계획, 서버 재기동, reset·워밍업·측정·수집, 유효성 판정 V1~V13, 재개
+- `scripts/monitor.py`: 1초 간격 자원 기록, 5초 간격 외부 부하(실험 경로 밖 프로세스의 CPU)
+- `--strict-env`: 전원 어댑터·저전력 모드 해제·load average·Colima 자원을 시작 전과 조건마다 검사
+
+공통 설정: HikariCP 커넥션 풀 100 = Tomcat 최대 스레드 100 (풀이 더 작으면 기동 실패), `innodb_lock_wait_timeout=3`, REPEATABLE READ, JVM `-Xms1g -Xmx1g`, k6 `GOMAXPROCS=2`.
 
 방식 프로파일(`m0`~`m3`)은 정확히 하나만 지정한다. 모드 프로파일: `verify`(SQL 로그), `correctness`(구매 기록 ON), `perf`(로그·구매 기록 OFF).
 

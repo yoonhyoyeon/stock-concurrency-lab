@@ -1,0 +1,133 @@
+{
+  "status": "valid",
+  "invalid_reason": "",
+  "checks": {
+    "V1_no_sold_out": true,
+    "V2_total_stock": true,
+    "V3_product_stock": true,
+    "V4_version": true,
+    "V5_max_attempts": true,
+    "V6_no_interrupted": true,
+    "V9_no_connection_timeout": true,
+    "V11_no_sleep": true,
+    "V12_drain_within_vu": true
+  },
+  "V7_success_match": {
+    "result": "pass",
+    "k6_success": 43412,
+    "server_commits": 43412
+  },
+  "V8_counts": {
+    "k6": {
+      "main": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      },
+      "drain": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      }
+    },
+    "server_connection_timeouts": 0
+  },
+  "info": {
+    "server_requests": 81254,
+    "k6_requests_returned": 81254,
+    "stock_decrement": 43412
+  },
+  "clock": {
+    "wall_s": 30.045,
+    "mono_s": 30.045
+  },
+  "k6_exit_code": 0,
+  "env_after": {
+    "power_source": "AC",
+    "low_power_mode": 0,
+    "load1": 5.42,
+    "thermal_warning": [],
+    "time": "2026-11-17T14:48:57"
+  },
+  "monitor": {
+    "host_cpu_busy_pct": {
+      "avg": 55.1,
+      "max": 73.7,
+      "n": 29
+    },
+    "java_cpu_pct": {
+      "avg": 51.4,
+      "max": 147.4,
+      "n": 29
+    },
+    "k6_cpu_pct": {
+      "avg": 24.34,
+      "max": 26.9,
+      "n": 29
+    },
+    "vm_cpu_pct": {
+      "avg": 236.31,
+      "max": 246.5,
+      "n": 29
+    },
+    "forward_cpu_pct": {
+      "avg": 63.72,
+      "max": 66.7,
+      "n": 29
+    },
+    "external_cores": {
+      "avg": 0.26,
+      "max": 0.378,
+      "n": 5
+    },
+    "mysql_cpu_pct": {
+      "avg": 87.97,
+      "max": 102.87,
+      "n": 29
+    },
+    "hikari_active": {
+      "avg": 15.52,
+      "max": 16.0,
+      "n": 29
+    },
+    "hikari_pending": {
+      "avg": 0.0,
+      "max": 0.0,
+      "n": 29
+    },
+    "heap_used_mib": {
+      "avg": 325.3,
+      "max": 581.0,
+      "n": 29
+    },
+    "load1": {
+      "avg": 4.69,
+      "max": 5.42,
+      "n": 29
+    }
+  },
+  "top_external_processes": [
+    [
+      "/PrivateFrameworks/SkyLight.framework/Resources/WindowServer",
+      0.056
+    ],
+    [
+      "elper (Renderer).app/Contents/MacOS/Cursor Helper (Renderer)",
+      0.031
+    ],
+    [
+      "/Applications/Cursor.app/Contents/MacOS/Cursor",
+      0.026
+    ],
+    [
+      "/usr/sbin/bluetoothd",
+      0.012
+    ],
+    [
+      "/usr/libexec/diskarbitrationd",
+      0.01
+    ]
+  ]
+}

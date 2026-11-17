@@ -1,0 +1,27 @@
+{
+  "power_source": "AC",
+  "low_power_mode": 1,
+  "load1": 3.96,
+  "time": "2026-11-17T12:20:51",
+  "colima": [
+    "default",
+    "Running",
+    "aarch64",
+    "4",
+    "4GiB",
+    "20GiB",
+    "docker"
+  ],
+  "top_processes": [
+    "11.3 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine",
+    " 10.1 /usr/libexec/sysmond",
+    "  7.2 /System/Applications/Utilities/Activity Monitor.app/Contents/MacOS/Activity Monitor",
+    "  4.3 /usr/libexec/diskarbitrationd",
+    "  3.4 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer"
+  ],
+  "problems": [
+    "저전력 모드가 켜져 있음 (시스템 설정 → 배터리 → 저전력 모드: 안 함)"
+  ],
+  "strict": false,
+  "code_version": "61a2123-dirty"
+}

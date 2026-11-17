@@ -1,0 +1,133 @@
+{
+  "status": "valid",
+  "invalid_reason": "",
+  "checks": {
+    "V1_no_sold_out": true,
+    "V2_total_stock": true,
+    "V3_product_stock": true,
+    "V4_version": true,
+    "V5_max_attempts": true,
+    "V6_no_interrupted": true,
+    "V9_no_connection_timeout": true,
+    "V11_no_sleep": true,
+    "V12_drain_within_vu": true
+  },
+  "V7_success_match": {
+    "result": "pass",
+    "k6_success": 70860,
+    "server_commits": 70860
+  },
+  "V8_counts": {
+    "k6": {
+      "main": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      },
+      "drain": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      }
+    },
+    "server_connection_timeouts": 0
+  },
+  "info": {
+    "server_requests": 70860,
+    "k6_requests_returned": 70860,
+    "stock_decrement": 70860
+  },
+  "clock": {
+    "wall_s": 30.049,
+    "mono_s": 30.049
+  },
+  "k6_exit_code": 0,
+  "env_after": {
+    "power_source": "Battery",
+    "low_power_mode": 0,
+    "load1": 6.94,
+    "thermal_warning": [],
+    "time": "2026-11-17T15:14:42"
+  },
+  "monitor": {
+    "host_cpu_busy_pct": {
+      "avg": 52.97,
+      "max": 73.3,
+      "n": 29
+    },
+    "java_cpu_pct": {
+      "avg": 37.96,
+      "max": 88.9,
+      "n": 29
+    },
+    "k6_cpu_pct": {
+      "avg": 21.75,
+      "max": 23.4,
+      "n": 29
+    },
+    "vm_cpu_pct": {
+      "avg": 247.63,
+      "max": 252.5,
+      "n": 29
+    },
+    "forward_cpu_pct": {
+      "avg": 64.92,
+      "max": 67.0,
+      "n": 29
+    },
+    "external_cores": {
+      "avg": 0.13,
+      "max": 0.158,
+      "n": 5
+    },
+    "mysql_cpu_pct": {
+      "avg": 78.6,
+      "max": 95.2,
+      "n": 29
+    },
+    "hikari_active": {
+      "avg": 15.45,
+      "max": 16.0,
+      "n": 29
+    },
+    "hikari_pending": {
+      "avg": 0.0,
+      "max": 0.0,
+      "n": 29
+    },
+    "heap_used_mib": {
+      "avg": 323.98,
+      "max": 594.6,
+      "n": 29
+    },
+    "load1": {
+      "avg": 7.29,
+      "max": 7.78,
+      "n": 29
+    }
+  },
+  "top_external_processes": [
+    [
+      "/usr/libexec/diskarbitrationd",
+      0.012
+    ],
+    [
+      "/usr/sbin/bluetoothd",
+      0.01
+    ],
+    [
+      "/usr/libexec/airportd",
+      0.007
+    ],
+    [
+      "/usr/libexec/locationd",
+      0.006
+    ],
+    [
+      "/usr/libexec/nearbyd",
+      0.006
+    ]
+  ]
+}

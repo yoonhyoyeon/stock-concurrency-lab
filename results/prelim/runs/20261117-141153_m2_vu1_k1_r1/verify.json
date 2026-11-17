@@ -1,0 +1,100 @@
+{
+  "status": "valid",
+  "invalid_reason": "",
+  "checks": {
+    "V1_no_sold_out": true,
+    "V2_total_stock": true,
+    "V3_product_stock": true,
+    "V4_version": true,
+    "V5_max_attempts": true,
+    "V6_no_interrupted": true,
+    "V9_no_connection_timeout": true
+  },
+  "V7_success_match": {
+    "result": "pass",
+    "k6_success": 14012,
+    "server_commits": 14012
+  },
+  "V8_counts": {
+    "k6": {
+      "main": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      },
+      "drain": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      }
+    },
+    "server_connection_timeouts": 0
+  },
+  "info": {
+    "server_requests": 14012,
+    "k6_requests_returned": 14012,
+    "stock_decrement": 14012
+  },
+  "k6_exit_code": 0,
+  "env_after": {
+    "power_source": "AC",
+    "low_power_mode": 0,
+    "load1": 5.58,
+    "thermal_warning": [],
+    "time": "2026-11-17T14:12:33"
+  },
+  "monitor": {
+    "host_cpu_busy_pct": {
+      "avg": 37.0,
+      "max": 55.2,
+      "n": 29
+    },
+    "java_cpu_pct": {
+      "avg": 7.66,
+      "max": 17.8,
+      "n": 29
+    },
+    "k6_cpu_pct": {
+      "avg": 4.33,
+      "max": 5.0,
+      "n": 29
+    },
+    "vm_cpu_pct": {
+      "avg": 104.13,
+      "max": 107.5,
+      "n": 29
+    },
+    "other_cores": {
+      "avg": 1.8,
+      "max": 3.24,
+      "n": 29
+    },
+    "mysql_cpu_pct": {
+      "avg": 15.44,
+      "max": 17.12,
+      "n": 29
+    },
+    "hikari_active": {
+      "avg": 0.97,
+      "max": 1.0,
+      "n": 29
+    },
+    "hikari_pending": {
+      "avg": 0.0,
+      "max": 0.0,
+      "n": 29
+    },
+    "heap_used_mib": {
+      "avg": 331.41,
+      "max": 607.2,
+      "n": 29
+    },
+    "load1": {
+      "avg": 6.13,
+      "max": 6.45,
+      "n": 29
+    }
+  }
+}

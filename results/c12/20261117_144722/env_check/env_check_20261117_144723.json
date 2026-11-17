@@ -1,0 +1,26 @@
+{
+  "power_source": "AC",
+  "low_power_mode": 0,
+  "load1": 1.97,
+  "thermal_warning": [],
+  "time": "2026-11-17T14:47:22",
+  "colima": [
+    "default",
+    "Running",
+    "aarch64",
+    "4",
+    "4GiB",
+    "20GiB",
+    "docker"
+  ],
+  "top_processes": [
+    "12.0 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer",
+    "  8.6 /Applications/Cursor.app/Contents/Frameworks/Cursor Helper (Renderer).app/Contents/MacOS/Cursor Helper (Renderer)",
+    "  7.2 /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python",
+    "  4.5 /Users/yoonhyoyeon/.cursor/extensions/anthropic.claude-code-2.1.316-darwin-arm64/resources/native-binary/claude",
+    "  3.9 /Applications/Cursor.app/Contents/Frameworks/Cursor Helper.app/Contents/MacOS/Cursor Helper"
+  ],
+  "problems": [],
+  "strict": false,
+  "code_version": "61a2123-dirty"
+}

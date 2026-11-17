@@ -1,0 +1,24 @@
+{
+  "order_index": "8",
+  "repeat": "2",
+  "method": "m3",
+  "vu": "1",
+  "k": "1",
+  "k6_seed": "2026113708",
+  "run_id": "20261117-145307_m3_vu1_k1_r2",
+  "warmup_s": 10,
+  "measure_s": 30,
+  "heap": "1g",
+  "initial_stock": 1000000000,
+  "server_restarted": true,
+  "server_pid": 89260,
+  "code_version": "61a2123-dirty",
+  "env": {
+    "power_source": "Battery",
+    "low_power_mode": 0,
+    "load1": 4.91,
+    "thermal_warning": [],
+    "time": "2026-11-17T14:53:10"
+  },
+  "started_at": "2026-11-17T14:53:07"
+}

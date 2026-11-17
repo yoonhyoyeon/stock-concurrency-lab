@@ -1,0 +1,133 @@
+{
+  "status": "valid",
+  "invalid_reason": "",
+  "checks": {
+    "V1_no_sold_out": true,
+    "V2_total_stock": true,
+    "V3_product_stock": true,
+    "V4_version": true,
+    "V5_max_attempts": true,
+    "V6_no_interrupted": true,
+    "V9_no_connection_timeout": true,
+    "V11_no_sleep": true,
+    "V12_drain_within_vu": true
+  },
+  "V7_success_match": {
+    "result": "pass",
+    "k6_success": 25608,
+    "server_commits": 25608
+  },
+  "V8_counts": {
+    "k6": {
+      "main": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      },
+      "drain": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      }
+    },
+    "server_connection_timeouts": 0
+  },
+  "info": {
+    "server_requests": 25608,
+    "k6_requests_returned": 25608,
+    "stock_decrement": 25608
+  },
+  "clock": {
+    "wall_s": 30.04,
+    "mono_s": 30.04
+  },
+  "k6_exit_code": 0,
+  "env_after": {
+    "power_source": "Battery",
+    "low_power_mode": 0,
+    "load1": 5.36,
+    "thermal_warning": [],
+    "time": "2026-11-17T14:54:30"
+  },
+  "monitor": {
+    "host_cpu_busy_pct": {
+      "avg": 42.55,
+      "max": 57.3,
+      "n": 29
+    },
+    "java_cpu_pct": {
+      "avg": 13.22,
+      "max": 18.7,
+      "n": 29
+    },
+    "k6_cpu_pct": {
+      "avg": 8.87,
+      "max": 10.0,
+      "n": 29
+    },
+    "vm_cpu_pct": {
+      "avg": 163.2,
+      "max": 168.4,
+      "n": 29
+    },
+    "forward_cpu_pct": {
+      "avg": 42.71,
+      "max": 44.8,
+      "n": 29
+    },
+    "external_cores": {
+      "avg": 0.54,
+      "max": 0.569,
+      "n": 5
+    },
+    "mysql_cpu_pct": {
+      "avg": 29.96,
+      "max": 32.23,
+      "n": 29
+    },
+    "hikari_active": {
+      "avg": 15.97,
+      "max": 16.0,
+      "n": 29
+    },
+    "hikari_pending": {
+      "avg": 0.0,
+      "max": 0.0,
+      "n": 29
+    },
+    "heap_used_mib": {
+      "avg": 346.14,
+      "max": 590.0,
+      "n": 29
+    },
+    "load1": {
+      "avg": 4.87,
+      "max": 5.36,
+      "n": 29
+    }
+  },
+  "top_external_processes": [
+    [
+      "/usr/sbin/coreaudiod",
+      0.101
+    ],
+    [
+      "/PrivateFrameworks/SkyLight.framework/Resources/WindowServer",
+      0.086
+    ],
+    [
+      "/usr/libexec/corebrightnessd",
+      0.027
+    ],
+    [
+      "/usr/libexec/PerfPowerServices",
+      0.024
+    ],
+    [
+      "/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter",
+      0.023
+    ]
+  ]
+}

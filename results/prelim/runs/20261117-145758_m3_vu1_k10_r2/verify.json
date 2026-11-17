@@ -1,0 +1,133 @@
+{
+  "status": "valid",
+  "invalid_reason": "",
+  "checks": {
+    "V1_no_sold_out": true,
+    "V2_total_stock": true,
+    "V3_product_stock": true,
+    "V4_version": true,
+    "V5_max_attempts": true,
+    "V6_no_interrupted": true,
+    "V9_no_connection_timeout": true,
+    "V11_no_sleep": true,
+    "V12_drain_within_vu": true
+  },
+  "V7_success_match": {
+    "result": "pass",
+    "k6_success": 13967,
+    "server_commits": 13967
+  },
+  "V8_counts": {
+    "k6": {
+      "main": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      },
+      "drain": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      }
+    },
+    "server_connection_timeouts": 0
+  },
+  "info": {
+    "server_requests": 13967,
+    "k6_requests_returned": 13967,
+    "stock_decrement": 13967
+  },
+  "clock": {
+    "wall_s": 30.021,
+    "mono_s": 30.021
+  },
+  "k6_exit_code": 0,
+  "env_after": {
+    "power_source": "Battery",
+    "low_power_mode": 0,
+    "load1": 3.3,
+    "thermal_warning": [],
+    "time": "2026-11-17T14:58:41"
+  },
+  "monitor": {
+    "host_cpu_busy_pct": {
+      "avg": 27.53,
+      "max": 51.6,
+      "n": 29
+    },
+    "java_cpu_pct": {
+      "avg": 29.47,
+      "max": 132.3,
+      "n": 29
+    },
+    "k6_cpu_pct": {
+      "avg": 4.92,
+      "max": 7.0,
+      "n": 29
+    },
+    "vm_cpu_pct": {
+      "avg": 103.43,
+      "max": 107.2,
+      "n": 29
+    },
+    "forward_cpu_pct": {
+      "avg": 25.66,
+      "max": 27.6,
+      "n": 29
+    },
+    "external_cores": {
+      "avg": 0.14,
+      "max": 0.184,
+      "n": 5
+    },
+    "mysql_cpu_pct": {
+      "avg": 16.15,
+      "max": 19.25,
+      "n": 29
+    },
+    "hikari_active": {
+      "avg": 0.93,
+      "max": 1.0,
+      "n": 29
+    },
+    "hikari_pending": {
+      "avg": 0.0,
+      "max": 0.0,
+      "n": 29
+    },
+    "heap_used_mib": {
+      "avg": 327.76,
+      "max": 605.0,
+      "n": 29
+    },
+    "load1": {
+      "avg": 3.58,
+      "max": 3.94,
+      "n": 29
+    }
+  },
+  "top_external_processes": [
+    [
+      "/PrivateFrameworks/SkyLight.framework/Resources/WindowServer",
+      0.023
+    ],
+    [
+      "/usr/libexec/diskarbitrationd",
+      0.008
+    ],
+    [
+      "/usr/sbin/bluetoothd",
+      0.007
+    ],
+    [
+      "/sbin/launchd",
+      0.006
+    ],
+    [
+      "ude-code-2.1.316-darwin-arm64/resources/native-binary/claude",
+      0.005
+    ]
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "strategy": "m2",
+  "maxRetries": 3,
+  "entities": [
+    "PurchaseLog",
+    "VersionedProduct"
+  ],
+  "products": [
+    {
+      "id": 1,
+      "stock": 999992234,
+      "version": 7766
+    }
+  ],
+  "purchaseLogCount": 0,
+  "inFlight": 0,
+  "counters": {
+    "requests": 17098,
+    "inFlight": 0,
+    "commitSuccess": 7766,
+    "outcomes": {
+      "SUCCESS": 7766,
+      "SOLD_OUT": 0,
+      "CONFLICT": 9332,
+      "LOCK_TIMEOUT": 0,
+      "ERROR": 0
+    },
+    "totalAttempts": 54779,
+    "conflictAttempts": 47013,
+    "maxAttempts": 4,
+    "connectionTimeouts": 0,
+    "commitsByProduct": {
+      "1": 7766
+    },
+    "failureTypes": {
+      "ObjectOptimisticLockingFailureException": 47013
+    }
+  },
+  "dbSettings": {
+    "flush_log_at_trx_commit": 1,
+    "sync_binlog": 1,
+    "buffer_pool_size": 134217728,
+    "lock_wait_timeout": 3,
+    "log_bin": 1,
+    "tomcat_max_threads": 100,
+    "hikari_maximum_pool_size": 100,
+    "isolation": "REPEATABLE-READ",
+    "max_connections": 200,
+    "version": "8.0.46"
+  }
+}

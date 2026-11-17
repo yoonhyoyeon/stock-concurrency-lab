@@ -1,0 +1,133 @@
+{
+  "status": "valid",
+  "invalid_reason": "",
+  "checks": {
+    "V1_no_sold_out": true,
+    "V2_total_stock": true,
+    "V3_product_stock": true,
+    "V4_version": true,
+    "V5_max_attempts": true,
+    "V6_no_interrupted": true,
+    "V9_no_connection_timeout": true,
+    "V11_no_sleep": true,
+    "V12_drain_within_vu": true
+  },
+  "V7_success_match": {
+    "result": "pass",
+    "k6_success": 14236,
+    "server_commits": 14236
+  },
+  "V8_counts": {
+    "k6": {
+      "main": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      },
+      "drain": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      }
+    },
+    "server_connection_timeouts": 0
+  },
+  "info": {
+    "server_requests": 14236,
+    "k6_requests_returned": 14236,
+    "stock_decrement": 14236
+  },
+  "clock": {
+    "wall_s": 30.02,
+    "mono_s": 30.02
+  },
+  "k6_exit_code": 0,
+  "env_after": {
+    "power_source": "Battery",
+    "low_power_mode": 0,
+    "load1": 5.66,
+    "thermal_warning": [],
+    "time": "2026-11-17T14:51:45"
+  },
+  "monitor": {
+    "host_cpu_busy_pct": {
+      "avg": 27.57,
+      "max": 40.5,
+      "n": 29
+    },
+    "java_cpu_pct": {
+      "avg": 8.26,
+      "max": 14.7,
+      "n": 29
+    },
+    "k6_cpu_pct": {
+      "avg": 4.62,
+      "max": 6.0,
+      "n": 29
+    },
+    "vm_cpu_pct": {
+      "avg": 103.66,
+      "max": 114.0,
+      "n": 29
+    },
+    "forward_cpu_pct": {
+      "avg": 25.92,
+      "max": 27.6,
+      "n": 29
+    },
+    "external_cores": {
+      "avg": 0.36,
+      "max": 0.431,
+      "n": 5
+    },
+    "mysql_cpu_pct": {
+      "avg": 16.58,
+      "max": 20.37,
+      "n": 29
+    },
+    "hikari_active": {
+      "avg": 1.0,
+      "max": 1.0,
+      "n": 29
+    },
+    "hikari_pending": {
+      "avg": 0.0,
+      "max": 0.0,
+      "n": 29
+    },
+    "heap_used_mib": {
+      "avg": 332.96,
+      "max": 612.5,
+      "n": 29
+    },
+    "load1": {
+      "avg": 6.48,
+      "max": 7.4,
+      "n": 29
+    }
+  },
+  "top_external_processes": [
+    [
+      "/PrivateFrameworks/SkyLight.framework/Resources/WindowServer",
+      0.061
+    ],
+    [
+      "elper (Renderer).app/Contents/MacOS/Cursor Helper (Renderer)",
+      0.026
+    ],
+    [
+      "/usr/sbin/bluetoothd",
+      0.022
+    ],
+    [
+      "nts/PlugIns/WeatherWidget.appex/Contents/MacOS/WeatherWidget",
+      0.021
+    ],
+    [
+      "/usr/libexec/corebrightnessd",
+      0.02
+    ]
+  ]
+}

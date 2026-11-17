@@ -1,0 +1,133 @@
+{
+  "status": "valid",
+  "invalid_reason": "",
+  "checks": {
+    "V1_no_sold_out": true,
+    "V2_total_stock": true,
+    "V3_product_stock": true,
+    "V4_version": true,
+    "V5_max_attempts": true,
+    "V6_no_interrupted": true,
+    "V9_no_connection_timeout": true,
+    "V11_no_sleep": true,
+    "V12_drain_within_vu": true
+  },
+  "V7_success_match": {
+    "result": "pass",
+    "k6_success": 28388,
+    "server_commits": 28388
+  },
+  "V8_counts": {
+    "k6": {
+      "main": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      },
+      "drain": {
+        "LOCK_TIMEOUT": 0,
+        "ERROR": 0,
+        "CLIENT_TIMEOUT": 0,
+        "CLIENT_ERROR": 0
+      }
+    },
+    "server_connection_timeouts": 0
+  },
+  "info": {
+    "server_requests": 41117,
+    "k6_requests_returned": 41117,
+    "stock_decrement": 28388
+  },
+  "clock": {
+    "wall_s": 30.086,
+    "mono_s": 30.086
+  },
+  "k6_exit_code": 0,
+  "env_after": {
+    "power_source": "Battery",
+    "low_power_mode": 0,
+    "load1": 9.22,
+    "thermal_warning": [],
+    "time": "2026-11-17T14:50:22"
+  },
+  "monitor": {
+    "host_cpu_busy_pct": {
+      "avg": 60.72,
+      "max": 74.5,
+      "n": 29
+    },
+    "java_cpu_pct": {
+      "avg": 74.71,
+      "max": 162.6,
+      "n": 29
+    },
+    "k6_cpu_pct": {
+      "avg": 17.65,
+      "max": 19.6,
+      "n": 29
+    },
+    "vm_cpu_pct": {
+      "avg": 253.67,
+      "max": 265.4,
+      "n": 29
+    },
+    "forward_cpu_pct": {
+      "avg": 67.74,
+      "max": 72.8,
+      "n": 29
+    },
+    "external_cores": {
+      "avg": 0.31,
+      "max": 0.408,
+      "n": 5
+    },
+    "mysql_cpu_pct": {
+      "avg": 124.4,
+      "max": 142.95,
+      "n": 29
+    },
+    "hikari_active": {
+      "avg": 53.21,
+      "max": 63.0,
+      "n": 29
+    },
+    "hikari_pending": {
+      "avg": 0.0,
+      "max": 0.0,
+      "n": 29
+    },
+    "heap_used_mib": {
+      "avg": 311.94,
+      "max": 600.9,
+      "n": 29
+    },
+    "load1": {
+      "avg": 9.17,
+      "max": 9.71,
+      "n": 29
+    }
+  },
+  "top_external_processes": [
+    [
+      "/PrivateFrameworks/SkyLight.framework/Resources/WindowServer",
+      0.051
+    ],
+    [
+      "/usr/libexec/coreduetd",
+      0.025
+    ],
+    [
+      "elper (Renderer).app/Contents/MacOS/Cursor Helper (Renderer)",
+      0.015
+    ],
+    [
+      "/usr/libexec/PerfPowerServices",
+      0.014
+    ],
+    [
+      "/usr/libexec/corebrightnessd",
+      0.013
+    ]
+  ]
+}

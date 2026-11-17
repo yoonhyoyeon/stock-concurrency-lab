@@ -1,0 +1,103 @@
+{
+  "strategy": "m3",
+  "maxRetries": 0,
+  "entities": [
+    "PlainProduct",
+    "PurchaseLog"
+  ],
+  "products": [
+    {
+      "id": 1,
+      "stock": 999992915,
+      "version": 0
+    },
+    {
+      "id": 2,
+      "stock": 999992962,
+      "version": 0
+    },
+    {
+      "id": 3,
+      "stock": 999992981,
+      "version": 0
+    },
+    {
+      "id": 4,
+      "stock": 999993037,
+      "version": 0
+    },
+    {
+      "id": 5,
+      "stock": 999992914,
+      "version": 0
+    },
+    {
+      "id": 6,
+      "stock": 999992835,
+      "version": 0
+    },
+    {
+      "id": 7,
+      "stock": 999992810,
+      "version": 0
+    },
+    {
+      "id": 8,
+      "stock": 999992853,
+      "version": 0
+    },
+    {
+      "id": 9,
+      "stock": 999992916,
+      "version": 0
+    },
+    {
+      "id": 10,
+      "stock": 999992917,
+      "version": 0
+    }
+  ],
+  "purchaseLogCount": 0,
+  "inFlight": 0,
+  "counters": {
+    "requests": 70860,
+    "inFlight": 0,
+    "commitSuccess": 70860,
+    "outcomes": {
+      "SUCCESS": 70860,
+      "SOLD_OUT": 0,
+      "CONFLICT": 0,
+      "LOCK_TIMEOUT": 0,
+      "ERROR": 0
+    },
+    "totalAttempts": 70860,
+    "conflictAttempts": 0,
+    "maxAttempts": 1,
+    "connectionTimeouts": 0,
+    "commitsByProduct": {
+      "1": 7085,
+      "2": 7038,
+      "3": 7019,
+      "4": 6963,
+      "5": 7086,
+      "6": 7165,
+      "7": 7190,
+      "8": 7147,
+      "9": 7084,
+      "10": 7083
+    },
+    "failureTypes": {}
+  },
+  "dbSettings": {
+    "isolation": "REPEATABLE-READ",
+    "hikari_maximum_pool_size": 100,
+    "tomcat_max_threads": 100,
+    "log_bin": 1,
+    "lock_wait_timeout": 3,
+    "buffer_pool_size": 134217728,
+    "sync_binlog": 1,
+    "flush_log_at_trx_commit": 1,
+    "version": "8.0.46",
+    "max_connections": 200
+  }
+}

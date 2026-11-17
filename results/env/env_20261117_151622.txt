@@ -1,0 +1,44 @@
+# 실험 환경 정보 (2026-11-17 15:16:22 +0900)
+
+## 코드
+code_version: 61a2123-dirty
+
+## 하드웨어·OS
+model: Mac15,13
+cpu: Apple M3
+cores: 성능 4 + 효율 4 = 8
+memory_gib: 16
+os: macOS 14.6 (23G80)
+power: 'Battery Power'
+low_power_mode: 0
+thermal: Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded 
+
+## 런타임 버전
+java: openjdk version "21.0.13" 2026-10-20 LTS
+jvm_options: -Xms1g -Xmx1g (G1 GC 기본값)
+spring_boot: spring-boot-3.5.16.jar
+hibernate: hibernate-core-6.6.53.Final.jar
+hikaricp: HikariCP-6.3.3.jar
+tomcat: tomcat-embed-core-10.1.55.jar
+k6: k6 v2.3.0 (commit/e088784614, go1.26.8, darwin/arm64)
+k6_gomaxprocs: 2 (run_matrix.py)
+python: Python 3.13.7
+
+## Docker / Colima
+colima: colima version v0.10.3
+  PROFILE    STATUS     ARCH       CPUS    MEMORY    DISK     RUNTIME    ADDRESS
+  default    Running    aarch64    4       4GiB      20GiB    docker     
+docker: 29.5.2
+mysql_image: mysql:8.0.46
+mysql_image_digest: mysql@sha256:7dcddc01f13bab2f15cde676d44d01f61fc9f99fe7785e86196dfc07d358ae2b
+
+## MySQL 설정
+version: 8.0.46
+general_log: OFF
+innodb_buffer_pool_size: 134217728
+innodb_flush_log_at_trx_commit: 1
+innodb_lock_wait_timeout: 3
+log_bin: ON
+max_connections: 200
+sync_binlog: 1
+transaction_isolation: REPEATABLE-READ

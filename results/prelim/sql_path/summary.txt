@@ -1,0 +1,9 @@
+m1 requests/commits/attempts=507 507 507  SQL lines=1014
+select vp1_0.id,vp1_0.name,vp1_0.stock,vp1_0.version from product vp1_0 where vp1_0.id=?
+update product set name=?,stock=?,version=? where id=? and version=?
+m2 requests/commits/attempts=636 636 636  SQL lines=1272
+select vp1_0.id,vp1_0.name,vp1_0.stock,vp1_0.version from product vp1_0 where vp1_0.id=?
+update product set name=?,stock=?,version=? where id=? and version=?
+m3 requests/commits/attempts=483 483 483  SQL lines=966
+select pp1_0.id,pp1_0.name,pp1_0.stock from product pp1_0 where pp1_0.id=? for update
+update product set name=?,stock=? where id=?

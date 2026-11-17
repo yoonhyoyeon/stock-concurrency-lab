@@ -1,0 +1,26 @@
+{
+  "power_source": "AC",
+  "low_power_mode": 0,
+  "load1": 2.76,
+  "thermal_warning": [],
+  "time": "2026-11-17T13:59:51",
+  "colima": [
+    "default",
+    "Running",
+    "aarch64",
+    "4",
+    "4GiB",
+    "20GiB",
+    "docker"
+  ],
+  "top_processes": [
+    "5.5 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer",
+    "  5.2 /Applications/Cursor.app/Contents/Frameworks/Cursor Helper (Renderer).app/Contents/MacOS/Cursor Helper (Renderer)",
+    "  4.6 /usr/libexec/syspolicyd",
+    "  3.4 /usr/libexec/searchpartyuseragent",
+    "  2.9 /System/Library/PrivateFrameworks/IMCore.framework/imagent.app/Contents/MacOS/imagent"
+  ],
+  "problems": [],
+  "strict": true,
+  "code_version": "61a2123-dirty"
+}
